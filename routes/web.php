@@ -40,6 +40,7 @@ Route::prefix('admin')->group(function () {
     Route::post('reservations', [AdminReservationController::class, 'store'])->name('admin.reservations.store');
     Route::get('reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
     //房間管理
+    Route::get('rooms', [AdminRoomController::class, 'index'])->name('admin.rooms.index');
     Route::get('rooms/create', [AdminRoomController::class, 'create'])->name('admin.rooms.create');
     Route::patch('rooms/{id}', [AdminRoomController::class, 'update'])->name('admin.rooms.update');
     Route::delete('rooms/{id}', [AdminRoomController::class, 'destroy'])->name('admin.rooms.destroy');

@@ -37,6 +37,12 @@
             <li class="active">
                 <a href="{{ route('admin.reservations.index') }}"><i class="fa fa-fw fa-dashboard"></i> 主控台</a>
             </li>
+            <li>
+                <a href="{{ route('admin.rooms.index') }}"><i class="fa fa-fw fa-edit"></i> 房間管理</a>
+            </li>
+            <li>
+                <a href="/"><i class="fa fa-fw fa-edit"></i> 回前端</a>
+            </li>
 {{--            <li>--}}
 {{--                <a href="{{ route('admin.rooms.index') }}"><i class="fa fa-fw fa-edit"></i> 文章管理</a>--}}
 {{--            </li>--}}
