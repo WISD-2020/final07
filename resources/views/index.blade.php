@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Hielo by TEMPLATED</title>
+		<title>曙晨民宿</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,62 +15,66 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-				<div class="logo"><a href="/">Hielo <span>by TEMPLATED</span></a></div>
+				<div class="logo"><a href="/">曙晨民宿</a></div>
 				<a href="#menu">Menu</a>
 			</header>
 
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="/">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
+					<li><a href="/">首頁</a></li>
+					<li><a href={{ route('login') }}>登入</a></li>
+                    <li><a href={{ route('register') }}>註冊</a></li>
+                    <li><a href="/rooms">房型介紹</a></li>
+                    <li><a href=href="#">線上訂房</a></li>
+
 				</ul>
 			</nav>
 
 		<!-- Banner -->
 			<section class="banner full">
 				<article>
-					<img src="images/slide01.jpg" alt="" />
+					<img src="images/hotel01.jpg" alt="" />
 					<div class="inner">
 						<header>
-							<p>A free responsive web site template by <a href="https://templated.co">TEMPLATED</a></p>
-							<h2>Hielo</h2>
+							<p>帶您度過美好的假期</p>
+							<h2>歡迎蒞臨曙晨民宿</h2>
 						</header>
 					</div>
 				</article>
 				<article>
-					<img src="images/slide02.jpg" alt="" />
+					<img src="images/hotel02.jpg" alt="" />
 					<div class="inner">
 						<header>
-							<p>Lorem ipsum dolor sit amet nullam feugiat</p>
-							<h2>Magna etiam</h2>
+							<p>度過愉快的夜晚</p>
+							<h2>歡迎蒞臨曙晨民宿</h2>
 						</header>
 					</div>
 				</article>
 				<article>
-					<img src="images/slide03.jpg"  alt="" />
+					<img src="images/hotel03.jpg"  alt="" />
 					<div class="inner">
 						<header>
-							<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
-							<h2>Tempus dolor</h2>
+							<p>帶您度過美好的假期</p>
+							<h2>歡迎蒞臨曙晨民宿</h2>
 						</header>
 					</div>
 				</article>
 				<article>
-					<img src="images/slide04.jpg"  alt="" />
+					<img src="images/hotel04.jpg"  alt="" />
 					<div class="inner">
 						<header>
-							<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
-							<h2>Etiam feugiat</h2>
+							<p>度過愉快的夜晚</p>
+							<h2>歡迎蒞臨曙晨民宿</h2>
 						</header>
 					</div>
 				</article>
 				<article>
-					<img src="images/slide05.jpg"  alt="" />
+					<img src="images/hotel05.jpg"  alt="" />
 					<div class="inner">
 						<header>
-							<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
-							<h2>Lorem adipiscing</h2>
+							<p>帶您度過美好的假期</p>
+							<h2>歡迎蒞臨曙晨民宿</h2>
 						</header>
 					</div>
 				</article>
@@ -78,22 +82,29 @@
 
 		<!-- One -->
 			<section id="one" class="wrapper style2">
+
+                <div class="inner">
+                    <header class="align-center">
+                        <h2>熱門套房</h2>
+                    </header>
+                </div>
+
 				<div class="inner">
 					<div class="grid-style">
 
 						<div>
 							<div class="box">
 								<div class="image fit">
-									<img src="images/pic02.jpg" alt="" />
+									<img src="images/room01.jpg" alt="" />
 								</div>
 								<div class="content">
 									<header class="align-center">
-										<p>maecenas sapien feugiat ex purus</p>
-										<h2>Lorem ipsum dolor</h2>
+										<p>DELUXE SINGLE</p>
+										<h2>豪華單床房</h2>
 									</header>
-									<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+									<p> 大約13.3坪，內含一大床，光線明亮、空間寬敞；視野遼闊、獨特景觀設計，高雅紅木傢俱陳設、乾溼分離清爽衛浴空間，高科技通訊設備。</p>
 									<footer class="align-center">
-										<a href="#" class="button alt">Learn More</a>
+										<a href="#" class="button alt">房型一覽</a>
 									</footer>
 								</div>
 							</div>
@@ -102,20 +113,58 @@
 						<div>
 							<div class="box">
 								<div class="image fit">
-									<img src="images/pic03.jpg" alt="" />
+									<img src="images/room02.jpg" alt="" />
 								</div>
 								<div class="content">
 									<header class="align-center">
-										<p>mattis elementum sapien pretium tellus</p>
-										<h2>Vestibulum sit amet</h2>
+										<p>DELUXE TWIN</p>
+										<h2>豪華雙床房</h2>
 									</header>
-									<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
+									<p>大約13坪，內含兩中床，光線明亮、空間寬敞；視野遼闊、獨特景觀設計，高雅紅木傢俱陳設、乾溼分離清爽衛浴空間，高科技通訊設備。2019全面換新之地毯，採「中彩低明度」色調，並以「桂花」圖騰延伸設計；桂花花語為「收穫」，預祝您的每趟旅程都能收穫滿滿，另外也取「桂」諧音，說明每位嘉賓都是我們的「貴人」。</p>
 									<footer class="align-center">
-										<a href="#" class="button alt">Learn More</a>
+										<a href="#" class="button alt">房型一覽</a>
 									</footer>
 								</div>
 							</div>
 						</div>
+
+                        <div>
+                            <div class="box">
+                                <div class="image fit">
+                                    <img src="images/room02.jpg" alt="" />
+                                </div>
+                                <div class="content">
+                                    <header class="align-center">
+                                        <p>DELUXE TWIN</p>
+                                        <h2>豪華雙床房</h2>
+                                    </header>
+                                    <p>大約13坪，內含兩中床，光線明亮、空間寬敞；視野遼闊、獨特景觀設計，高雅紅木傢俱陳設、乾溼分離清爽衛浴空間，高科技通訊設備。2019全面換新之地毯，採「中彩低明度」色調，並以「桂花」圖騰延伸設計；桂花花語為「收穫」，預祝您的每趟旅程都能收穫滿滿，另外也取「桂」諧音，說明每位嘉賓都是我們的「貴人」。</p>
+                                    <footer class="align-center">
+                                        <a href="#" class="button alt">房型一覽</a>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="box">
+                                <div class="image fit">
+                                    <img src="images/room03.jpg" alt="" />
+                                </div>
+                                <div class="content">
+                                    <header class="align-center">
+                                        <p>ELEGANT ROOM</p>
+                                        <h2>典雅客房</h2>
+                                    </header>
+                                    <p>約14坪大小的雙人房，整體設計透過降低高彩度色系，減少視覺刺激，並輔上穩重色調之傢俱，定調出場域機能，室內對外窗引入明亮光線，綴以牆面及地毯的銀杏圖樣，促使房內空間更顯生意盎然，讓您能恣意放鬆，享受休閒假期。
+
+                                        房間提供一大床（180cm × 200cm） 及舒適沙發；43吋互動型智慧電視，不論影音、通訊、網路，三合一功能，享受享受高科技帶來的方便生活；客房書桌椅為紅木打造，經改造上漆後，更顯歷史風華；茶點配置均選用在地安心茶款。</p>
+                                    <footer class="align-center">
+                                        <a href="#" class="button alt">房型一覽</a>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
 
 					</div>
 				</div>
@@ -125,43 +174,14 @@
 			<section id="two" class="wrapper style3">
 				<div class="inner">
 					<header class="align-center">
-						<p>Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-						<h2>Morbi maximus justo</h2>
+                        <ul class="actions fit">
+                            <li><a href="#" class="button special fit">立即訂房</a></li>
+                        </ul>
 					</header>
 				</div>
 			</section>
 
-		<!-- Three -->
-			<section id="three" class="wrapper style2">
-				<div class="inner">
-					<header class="align-center">
-						<p class="special">Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-						<h2>Morbi maximus justo</h2>
-					</header>
-					<div class="gallery">
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic01.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic02.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic03.jpg" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a href="#"><img src="images/pic04.jpg" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+
 
 
 		<!-- Footer -->
