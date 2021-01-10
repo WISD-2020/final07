@@ -25,12 +25,21 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 
+
+//訂房
+Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
+Route::get('reservations/create', [ReservationController::class, 'create'])->name('reservations.creates');
+Route::get('reservations/{id}', [ReservationController::class, 'show'])->name('reservations.show');
+Route::delete('reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
 //管理員
 Route::prefix('admin')->group(function () {
+    //訂單管理
     Route::get('/', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
     Route::get('reservations/{id}/edit', [AdminReservationController::class, 'edit'])->name('admin.reservations.edit');
     Route::post('reservations', [AdminReservationController::class, 'store'])->name('admin.reservations.store');
     Route::get('reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
+    //房間管理
     Route::get('rooms/create', [AdminRoomController::class, 'create'])->name('admin.rooms.create');
     Route::patch('rooms/{id}', [AdminRoomController::class, 'update'])->name('admin.rooms.update');
     Route::delete('rooms/{id}', [AdminRoomController::class, 'destroy'])->name('admin.rooms.destroy');
