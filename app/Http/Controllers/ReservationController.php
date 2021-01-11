@@ -13,12 +13,9 @@ class ReservationController extends Controller
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
+
         $a=$request->input("id");
        return view('reservations.index',['a'=>$a]);
-=======
-       return view('reservations.index');
->>>>>>> edbfa714d08e9ab642977bc5e41c53048f6241ba
     }
 
     /**
