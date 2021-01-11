@@ -37,7 +37,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.rooms.create') }}" method="get">
+                <form action="{{ route('admin.rooms.store') }}" method="POST" role="form">
                     @method('POST')
                     {{ csrf_field() }}
                     <div class="modal-body">
@@ -45,17 +45,17 @@
                         <input type="text" class="form-control" name="id" id="id" value='' readonly="readonly" >
                         <label >房型</label>
                         <select id="type" name="type" class="form-control ">
-                            <option value="1" selected>套房</option>
-                            <option value="2">雅房</option>
+                            <option value="套房" selected>套房</option>
+                            <option value="雅房">雅房</option>
                         </select>
                         <label >幾人房</label>
-                        <select id="people" name="people" class="form-control ">
-                            <option value="1" selected>一人房</option>
-                            <option value="2">二人房</option>
-                            <option value="3">三人房</option>
-                            <option value="4">四人房</option>
-                            <option value="5">五人房</option>
-                            <option value="6">六人房</option>
+                        <select id="people" name="people" class="form-control">
+                            <option value="一人房" selected>一人房</option>
+                            <option value="二人房">二人房</option>
+                            <option value="三人房">三人房</option>
+                            <option value="四人房">四人房</option>
+                            <option value="五人房">五人房</option>
+                            <option value="六人房">六人房</option>
                         </select>
                         <label >價錢</label>
                         <input type="text" class="form-control" name="price" id="price" placeholder="1234" pattern="[0-9]*" title="請輸入數字" required>
@@ -71,6 +71,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

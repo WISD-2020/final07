@@ -51,6 +51,7 @@ Route::prefix('admin')->group(function () {
     //房間管理
     Route::get('rooms', [AdminRoomController::class, 'index'])->name('admin.rooms.index');
     Route::get('rooms/create', [AdminRoomController::class, 'create'])->name('admin.rooms.create');
+    Route::post('rooms/store', [AdminRoomController::class, 'store'])->name('admin.rooms.store');
     Route::patch('rooms/{id}', [AdminRoomController::class, 'update'])->name('admin.rooms.update');
     Route::delete('rooms/{id}', [AdminRoomController::class, 'destroy'])->name('admin.rooms.destroy');
     Route::get('rooms/{id}/edit', [AdminRoomController::class, 'edit'])->name('admin.rooms.edit');

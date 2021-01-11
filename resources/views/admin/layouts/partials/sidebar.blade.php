@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li class="active">
-                <a href="{{ route('admin.reservations.index') }}"><i class="fa fa-fw fa-dashboard"></i> 主控台</a>
+                <a href="{{ route('admin.reservations.index') }}"><i class="fa fa-fw fa-dashboard"></i> 訂單管理</a>
             </li>
             <li>
                 <a href="{{ route('admin.rooms.index') }}"><i class="fa fa-fw fa-edit"></i> 房間管理</a>
@@ -43,9 +43,6 @@
             <li>
                 <a href="/"><i class="fa fa-fw fa-edit"></i> 回前端</a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{ route('admin.rooms.index') }}"><i class="fa fa-fw fa-edit"></i> 文章管理</a>--}}
-{{--            </li>--}}
         </ul>
     </div>
     <!-- /.navbar-collapse -->
