@@ -5,14 +5,14 @@
 
 @section('content')
 <html>
-
+<body>
 		<!-- Header -->
         @include('layouts.partials.header')
 
 		<!-- Nav -->
         @include('layouts.partials.navigation')
 
-        @section('content')
+
 		<!-- Banner -->
 			<section class="banner full">
 				<article>
@@ -170,9 +170,9 @@
         @include('layouts.partials.footer')
 
 		<!-- Scripts -->
-        @include('layouts.partials.scripts')
+        @include('layouts.partials.scripts');
 
-	</body>
+        </body>
 </html>
 
 @endsection

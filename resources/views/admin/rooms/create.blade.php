@@ -37,19 +37,26 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.rooms.store') }}" method="POST" role="form">
+                <form action="{{ route('admin.rooms.store') }}" enctype="multipart/form-data" method="POST" role="form">
                     @method('POST')
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <label>房間編號</label>
-                        <input type="text" class="form-control" name="id" id="id" value='' readonly="readonly" >
-                        <label >房型</label>
-                        <select id="type" name="type" class="form-control ">
+
+                        <div class="form-group">
+                        <label for="id">房間編號</label><input type="text" class="form-control" name="id" id="id" value='' readonly="readonly" >
+                        <label for="type">房型</label><select id="type" name="type" class="form-control ">
                             <option value="套房" selected>套房</option>
                             <option value="雅房">雅房</option>
                         </select>
-                        <label >幾人房</label>
-                        <select id="people" name="people" class="form-control">
+                        <div class="form-group">
+
+                        <div class="form-group">
+                        <label for="pics">圖片位置：</label>
+                        <input type = "file" id="pics" name="pics" class="form-control" >
+                        <div class="form-group">
+
+                        <div class="form-group">
+                        <label for="people">幾人房</label><select id="people" name="people" class="form-control">
                             <option value="一人房" selected>一人房</option>
                             <option value="二人房">二人房</option>
                             <option value="三人房">三人房</option>
@@ -57,11 +64,17 @@
                             <option value="五人房">五人房</option>
                             <option value="六人房">六人房</option>
                         </select>
+                        <div class="form-group">
+
+                        <div class="form-group">
                         <label >價錢</label>
                         <input type="text" class="form-control" name="price" id="price" placeholder="1234" pattern="[0-9]*" title="請輸入數字" required>
+                        <div class="form-group">
 
+                            <div class="form-group">
                         <label >備註</label>
                         <input type="text" class="form-control" name="remark" id="remark" title="輸入備註" required>
+                                <div class="form-group">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                             <button type="submit" class="btn btn-primary">新增</button>

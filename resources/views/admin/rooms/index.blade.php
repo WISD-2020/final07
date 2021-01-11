@@ -73,17 +73,28 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
+<<<<<<< HEAD
+                            <th width="30" style="text-align: center">id</th>
+                            <th width="120" style="text-align: center">房型</th>
+                            <th width="150" style="text-align: center">圖片</th>
+                            <th width="150" style="text-align: center">價錢</th>
+                            <th width="150" style="text-align: center">可住人數</th>
+                            <th width="150" style="text-align: center">備註</th>
+                            <th width="80" style="text-align: center"></th>
+=======
                             <th width="10%" style="text-align: center">id</th>
                             <th width="20%" style="text-align: center">房型</th>
                             <th width="20%" style="text-align: center">價錢</th>
                             <th width="20%" style="text-align: center">價錢</th>
                             <th width="20%" style="text-align: center">備註</th>
+>>>>>>> b3c10ae13ab3b21a6c93abcf251d4fc49ff8f552
                         </tr>
                         </thead>
                         @foreach($rooms as $room)
                             <tr>
                                 <td>{{$room->id}}</td>
                                 <td>{{$room->type}}</td>
+                                <td>{{$room->pics}}</td>
                                 <td>{{($room->price)}}</td>
                                 <td>{{($room->people)}}</td>
                                 <td>{{($room->remark)}}</td>
