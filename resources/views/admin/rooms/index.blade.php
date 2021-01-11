@@ -7,13 +7,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                所有房間 <small></small>
+                房間管理 <small></small>
             </h1>
-            <ol class="breadcrumb">
-                <li class="active">
-                    <i class="fa fa-dashboard"></i> 房間管理
-                </li>
-            </ol>
         </div>
     </div>
     <!-- /.row -->
