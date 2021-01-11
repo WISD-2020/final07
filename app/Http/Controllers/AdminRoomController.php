@@ -51,12 +51,16 @@ class AdminRoomController extends Controller
      */
     public function store(Request $request)
     {
-//        $room = new Room;
-//        $room->type = $request->input("type");
-//        $room->people = $request->input("people");
-//        $room->price = $request->input("price");
-//        $room->remark = $request->input("remark");
-//        $room->save();
+        $room = new Room;
+        $room->type = $request->input("type");
+        $pics = $request->file("pics");
+        $picsname =time().'.'.$pics->getClientOriginalExtension();
+        $request->pics->move(public_path('images/'), $picsname);
+        $room->pics = "images/".$picsname;
+        $room->people = $request->input("people");
+        $room->price = $request->input("price");
+        $room->remark = $request->input("remark");
+        $room->save();
 
         Room::create($request->all());
 

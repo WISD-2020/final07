@@ -27,17 +27,21 @@
                         <tr>
                             <th width="30" style="text-align: center">id</th>
                             <th width="120" style="text-align: center">房型</th>
+                            <th width="150" style="text-align: center">圖片</th>
                             <th width="150" style="text-align: center">價錢</th>
-                            <th width="150" style="text-align: center">價錢</th>
-                            <th width="80" style="text-align: center">備註</th>
+                            <th width="150" style="text-align: center">可住人數</th>
+                            <th width="150" style="text-align: center">備註</th>
+                            <th width="80" style="text-align: center"></th>
                         </tr>
                         </thead>
                         @foreach($rooms as $room)
                             <tr>
                                 <td>{{$room->id}}</td>
                                 <td>{{$room->type}}</td>
+                                <td>{{$room->pics}}</td>
                                 <td>{{($room->price)}}</td>
                                 <td>{{($room->people)}}</td>
+                                <td>{{($room->remark)}}</td>
                                 <td>
                                     <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal2" >
                                         修改
