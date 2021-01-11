@@ -16,7 +16,9 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->index();
+            $table->dateTime('reservation_in')->nullable();
             $table->dateTime('checkin')->nullable();
+            $table->dateTime('reservation_out')->nullable();
             $table->dateTime('checkout')->nullable();
             $table->integer('cost');
             $table->string('states');
