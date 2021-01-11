@@ -9,6 +9,18 @@ class Detail extends Model
 {
     use HasFactory;
 
+    protected $table = 'details';
+
+    protected $fillable = [
+        'id',
+        'reservation_id',
+        'room_id',
+        'total',
+        'name',
+        'quantity',
+        'status'
+    ];
+
     public function reservation(){
         return $this->belongsTo(Reservation::class);
     }
