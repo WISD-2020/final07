@@ -7,11 +7,11 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                編輯文章 <small>編輯文章內容</small>
+                編輯房間 <small>
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-edit"></i> 文章管理
+                    <i class="fa fa-edit"></i> 房間管理
                 </li>
             </ol>
         </div>
@@ -35,6 +35,7 @@
                 @csrf
 
                 <div class="form-group">
+                    <label for="type">房型：</label>
                     <select id="type" name="type" class="form-control " value="{{ old('room', $room->type) }}">
                         <option value="套房" selected{{ old('room', $room->type) }}>套房</option>
                         <option value="雅房"{{ old('room', $room->type) }}>雅房</option>
@@ -42,6 +43,7 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="people">幾人房：</label>
                     <select id="people" name="people" class="form-control " >
                         <option value="一人房" selected {{ old('people', $room->people) }}>一人房</option>
                         <option value="二人房"{{ old('people', $room->people) }}>二人房</option>
@@ -57,10 +59,18 @@
                     <input name="price" class="form-control" value="{{ old('price', $room->price) }}">
                 </div>
 
+                <div class="form-group">
+                    <label for="remark">備註：</label>
+                    <input name="remark" class="form-control" value="{{ old('remark', $room->remark) }}">
+                </div>
+
                 <div class="text-right">
                     <button type="submit" class="btn btn-success">更新</button>
                 </div>
 
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">更新</button>
+                </div>
             </form>
 
             <p>&nbsp;</p>
