@@ -17,7 +17,6 @@
         </div>
     </div>
     <!-- /.row -->
-
     <div class="row">
         <p>&nbsp;</p>
         <p>&nbsp;</p>
@@ -41,6 +40,4 @@
         <p>&nbsp;</p>
         <p>&nbsp;</p>
     </div>
-    <!-- /.row -->
-
 @endsection
