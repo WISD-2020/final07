@@ -1,35 +1,16 @@
-<!DOCTYPE HTML>
-<!--
-	Hielo by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>房型介紹</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="rooms">
+!DOCTYPE HTML>
+@extends('layouts.master')
 
+@section('title', '曙晨民宿')
+
+@section('content')
+    <html>
+    <body>
     <!-- Header -->
-    <header id="header" class="alt">
-        <div class="logo"><a href="/">曙晨民宿</a></div>
-        <a href="#menu">Menu</a>
-    </header>
+    @include('layouts.partials.header')
 
     <!-- Nav -->
-    <nav id="menu">
-        <ul class="links">
-            <li><a href="/">首頁</a></li>
-            <li><a href={{ route('login') }}>登入</a></li>
-            <li><a href={{ route('register') }}>註冊</a></li>
-            <li><a href="/rooms">房型一覽</a></li>
-            <li><a href=href="#">線上訂房</a></li>
-
-        </ul>
-    </nav>
+    @include('layouts.partials.navigation')
 
 		<!-- One -->
 			<section id="One" class="wrapper style3">

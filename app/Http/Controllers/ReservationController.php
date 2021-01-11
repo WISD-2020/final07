@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -13,9 +15,11 @@ class ReservationController extends Controller
      */
     public function index(Request $request)
     {
+        $rooms=Room::orderBy('created_at','DESC')->get();
+        $aa= Room::all();
+        $data=['rooms'=>$rooms, 'a'=>$aa];
 
-        $a=$request->input("id");
-       return view('reservations.index',['a'=>$a]);
+       return view('reservations.index', $data);
     }
 
     /**
@@ -36,9 +40,22 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        auth()->user()->reservations()->create($request->all());
 
-        return redirect()->route('reservations.index');
+        $reservations = new Reservation();
+        $reservations->user_id = $request->input('user_id');
+        $reservations->checkin = $request->input('checkin');
+        $reservations->checkout = $request->input('checkout');
+        $reservations->cost = $request->input('cost');
+        $reservations->status = $request->input('status');
+        $reservations->save();
+        $rooms = reservation::orderBy('id', 'ASC')->paginate(6);
+        $data = [
+            'rooms' => $rooms
+        ];
+        return view('reservations.index', $data);
+
+
+
     }
 
     /**
