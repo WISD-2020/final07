@@ -14,18 +14,6 @@ class AdminRoomController extends Controller
      */
     public function index(Request $request)
     {
-
-//        //換頁
-//        $room= Room::paginate(5);
-//        //把最後一筆資料的id抓出來
-//        $lastid=0;
-//        if($room==""){
-//            $lastid=0;
-//        }else{
-//            $lastid=$room->id;
-//        }
-//
-//        $data=[ 'lastid'=>$lastid , 'chgpage'=>$chgpage ];
         $rooms=Room::orderBy('created_at','DESC')->get();
         $data=['rooms'=>$rooms];
         return view('admin.rooms.index', $data,);
@@ -64,7 +52,7 @@ class AdminRoomController extends Controller
 
         Room::create($request->all());
 
-        return redirect()->route('admin.rooms.create');
+        return redirect()->route('admin.rooms.index');
     }
 
     /**
@@ -86,9 +74,9 @@ class AdminRoomController extends Controller
      */
     public function edit($id)
     {
-        $data = ['id' => $id];
-
-        return view('admin.posts.edit', $data);
+        $room=Room::find($id);
+        $data=['room'=>$room];
+        return view('admin.rooms.edit',$data);
     }
 
     /**
@@ -98,9 +86,12 @@ class AdminRoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $room=Room::find($id);
+        $room->update($request->all());
+        return redirect()->route('admin.rooms.index');
+
     }
 
     /**
@@ -111,6 +102,8 @@ class AdminRoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Room::destroy($id);
+        return redirect()->route('admin.rooms.index');
+
     }
 }
