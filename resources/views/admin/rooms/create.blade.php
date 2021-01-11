@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('admin.layouts.master')
 
 @section('title', '房間管理')
@@ -73,3 +74,7 @@
 
 
 @endsection
+=======
+
+
+>>>>>>> edbfa714d08e9ab642977bc5e41c53048f6241ba

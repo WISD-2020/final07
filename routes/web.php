@@ -29,7 +29,9 @@ Route::get('/rooms', function () {
     return view('index');
 });
 
+
 Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
+
 
 
 //訂房
