@@ -48,7 +48,7 @@ class AdminRoomController extends Controller
 
         Room::create($request->all());
 
-        return redirect()->route('admin.rooms.create');
+        return redirect()->route('admin.rooms.index');
     }
 
     /**
