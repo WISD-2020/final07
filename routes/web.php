@@ -32,7 +32,10 @@ Route::get('/rooms', function () {
 
 Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
 
-
+//購物車
+Route::post('/cart/store', 'CartController@store')->name('cart.store');
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 //訂房
 Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');

@@ -24,6 +24,11 @@ class User extends Authenticatable
      * @var array
      */
 
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     public function reservations(){
         return $this->hasMany(Reservation::class);
     }
