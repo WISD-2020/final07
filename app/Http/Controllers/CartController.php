@@ -13,7 +13,10 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+
+        $carts =$request->user()->cart()->get();
+
+        return view('carts.index', compact('carts','users'));
     }
 
     /**
