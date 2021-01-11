@@ -11,9 +11,10 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       return view('rooms.index');
+        $a=$request->input("id");
+       return view('reservations.index',['a'=>$a]);
     }
 
     /**
@@ -23,7 +24,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return view('reservations.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        auth()->user()->reservations()->create($request->all());
+
+        return redirect()->route('reservations.index');
     }
 
     /**

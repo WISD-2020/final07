@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\AdminRoomController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,8 +34,9 @@ Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
 
 //訂房
 Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
-Route::get('reservations/create', [ReservationController::class, 'create'])->name('reservations.creates');
+Route::get('reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
 Route::get('reservations/{id}', [ReservationController::class, 'show'])->name('reservations.show');
+Route::post('reservations', [ReservationController::class, 'store'])->name('reservations.store');
 Route::delete('reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
 //管理員
