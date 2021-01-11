@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @extends('admin.layouts.master')
 
 @section('title', '房間管理')
