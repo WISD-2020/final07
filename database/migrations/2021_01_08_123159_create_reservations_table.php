@@ -18,6 +18,10 @@ class CreateReservationsTable extends Migration
             $table->foreignId('user_id')->nullable()->index();
             $table->date('checkin')->nullable();
             $table->date('checkout')->nullable();
+            $table->dateTime('reservation_in')->nullable();
+            $table->dateTime('checkin')->nullable();
+            $table->dateTime('reservation_out')->nullable();
+            $table->dateTime('checkout')->nullable();
             $table->integer('cost');
             $table->string('states');
             $table->timestamps();

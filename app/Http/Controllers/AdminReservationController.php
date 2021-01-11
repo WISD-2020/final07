@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class AdminReservationController extends Controller
@@ -13,7 +15,9 @@ class AdminReservationController extends Controller
      */
     public function index()
     {
-        return view('admin.reservations.index');
+        $reservations=Reservation::orderBy('created_at','DESC')->get();
+        $data=['reservations'=>$reservations];
+        return view('admin.reservations.index', $data,);
     }
 
     /**
@@ -56,7 +60,9 @@ class AdminReservationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reservations=Reservation::find($id);
+        $data=['reservations'=>$reservations];
+        return view('admin.reservations.edit',$data);
     }
 
     /**
@@ -66,9 +72,11 @@ class AdminReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $reservation=Reservation::find($id);
+        $reservation->update($request->all());
+        return redirect()->route('admin.reservations.index');
     }
 
     /**
@@ -79,6 +87,6 @@ class AdminReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+//
     }
 }
