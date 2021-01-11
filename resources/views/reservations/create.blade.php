@@ -1,4 +1,16 @@
-<<<<<<< HEAD
+@extends('layouts.master')
+
+@section('title', '線上訂房')
+
+@section('content')
+    <html lang="en">
+
+    <!-- Header -->
+    @include('layouts.partials.header')
+
+    <!-- Nav -->
+    @include('layouts.partials.navigation')
+
 
     <div class="row">
         <div class="col-lg-12">
@@ -21,6 +33,7 @@
             </button>
         </div>
     </div>
+
 
                 </div>
                 <form action="{{ route('reservation.create') }}" method="POST">
@@ -45,11 +58,15 @@
                         <p>
                         <p>
                             <label >預定入住時間</label>
-                            <input type="datetime-local" name="in_room" >
+                            <label>
+                                <input type="datetime-local" name="in_room">
+                            </label>
                         <p>
                         <p>
                             <label >預定退房時間</label>
-                            <input type="datetime-local" name="out_room" >
+                            <label>
+                                <input type="datetime-local" name="out_room">
+                            </label>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
@@ -240,4 +257,6 @@
         </x-jet-button>
     </div>
 </form>
->>>>>>> edbfa714d08e9ab642977bc5e41c53048f6241ba
+
+    </html>
+
