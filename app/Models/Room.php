@@ -9,6 +9,20 @@ class Room extends Model
 {
     use HasFactory;
 
+    protected $table = 'rooms';
+
+    protected $fillable =
+        [
+        'type',
+        'pics',
+        'people',
+        'price',
+        'remark'
+    ];
+
+
+
+
     public function details(){
         return $this->hasMany(Detail::class);
     }

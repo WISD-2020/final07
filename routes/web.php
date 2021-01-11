@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\AdminRoomController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,9 @@ Route::get('/rooms', function () {
     return view('index');
 });
 
+
 Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
+
 
 
 //訂房
