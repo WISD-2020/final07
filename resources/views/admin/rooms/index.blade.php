@@ -30,17 +30,23 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.rooms.store') }}" method="POST" role="form">
+                <form action="{{ route('admin.rooms.store') }}" enctype="multipart/form-data" method="POST" role="form">
                     @method('POST')
                     {{ csrf_field() }}
-                    <div class="modal-body">
-                        <label>房間編號</label>
-                        <input type="text" class="form-control" name="id" id="id" value='' readonly="readonly" >
-                        <label >房型</label>
-                        <select id="type" name="type" class="form-control ">
+                        <div class="form-group">
+                            <label for="id">房間編號</label><input type="text" class="form-control" name="id" id="id" value='' readonly="readonly" >
+                            <label for="type">房型</label>
+                            <select id="type" name="type" class="form-control ">
                             <option value="套房" selected>套房</option>
                             <option value="雅房">雅房</option>
-                        </select>
+                            </select>
+
+                                <div class="form-group">
+                                    <label for="pics">圖片位置：</label>
+                                    <input type = "file" id="pics" name="pics" class="form-control" >
+                                </div>
+
+
                         <label >幾人房</label>
                         <select id="people" name="people" class="form-control">
                             <option value="一人房" selected>一人房</option>
@@ -73,21 +79,12 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
-<<<<<<< HEAD
                             <th width="30" style="text-align: center">id</th>
                             <th width="120" style="text-align: center">房型</th>
                             <th width="150" style="text-align: center">圖片</th>
                             <th width="150" style="text-align: center">價錢</th>
                             <th width="150" style="text-align: center">可住人數</th>
                             <th width="150" style="text-align: center">備註</th>
-                            <th width="80" style="text-align: center"></th>
-=======
-                            <th width="10%" style="text-align: center">id</th>
-                            <th width="20%" style="text-align: center">房型</th>
-                            <th width="20%" style="text-align: center">價錢</th>
-                            <th width="20%" style="text-align: center">價錢</th>
-                            <th width="20%" style="text-align: center">備註</th>
->>>>>>> b3c10ae13ab3b21a6c93abcf251d4fc49ff8f552
                         </tr>
                         </thead>
                         @foreach($rooms as $room)

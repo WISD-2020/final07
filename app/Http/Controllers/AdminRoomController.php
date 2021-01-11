@@ -50,7 +50,6 @@ class AdminRoomController extends Controller
         $room->remark = $request->input("remark");
         $room->save();
 
-        Room::create($request->all());
 
         return redirect()->route('admin.rooms.index');
     }
