@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //房型
-Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
+Route::get('rooms',[RoomController::class,'index'])->name('rooms.index');
 Route::get('/rooms/{id}', [RoomController::class,'index'])->name('rooms.show');
 
 //購物車
@@ -49,6 +49,7 @@ Route::prefix('admin')->group(function () {
     Route::get('reservations/{id}/edit', [AdminReservationController::class, 'edit'])->name('admin.reservations.edit');
     Route::post('reservations', [AdminReservationController::class, 'store'])->name('admin.reservations.store');
     Route::get('reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
+    Route::patch('reservations/{id}', [AdminReservationController::class, 'update'])->name('admin.reservations.update');
     //房間管理
     Route::get('rooms', [AdminRoomController::class, 'index'])->name('admin.rooms.index');
     Route::get('rooms/create', [AdminRoomController::class, 'create'])->name('admin.rooms.create');
