@@ -17,17 +17,6 @@
         </div>
     </div>
     <!-- /.row -->
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-info-circle"></i>  <strong>警告！</strong> 請修正表單錯誤：
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
     <div class="row">
         <div class="col-lg-12">
             <form action="{{ route('admin.reservations.update', $reservations->id) }}" method="POST" role="form">
@@ -35,12 +24,12 @@
                 @csrf
 
                 <div class="form-group">
-                    <label> for="checkin"實紀入住時間：</label>
+                    <label> 實紀入住時間：</label>
                     <input name="checkin" class="form-control" value="{{ old('reservations', $reservations->checkin) }}">
                 </div>
 
                 <div class="form-group">
-                    <label> for="checkout" 實紀退房時間：</label>
+                    <label>實紀退房時間：</label>
                     <input name="checkout" class="form-control" value="{{ old('reservations', $reservations->checkout) }}">
                 </div>
 
@@ -57,8 +46,9 @@
                         <option value="已退房"{{ old('states', $reservations->states) }}>已退房</option>
                     </select>
                 </div>
-
-
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">更新</button>
+                </div>
 
             </form>
 
