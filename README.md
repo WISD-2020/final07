@@ -42,12 +42,15 @@ Route::delete('reservations/{id}', [ReservationController::class, 'destroy'])->n
 
 //管理員
 Route::prefix('admin')->group(function () {
+    
     //訂單管理
     Route::get('/', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
     Route::get('reservations/{id}/edit', [AdminReservationController::class, 'edit'])->name('admin.reservations.edit');
     Route::post('reservations', [AdminReservationController::class, 'store'])->name('admin.reservations.store');
     Route::get('reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
+    
     //房間管理
+    
     Route::get('rooms', [AdminRoomController::class, 'index'])->name('admin.rooms.index');
     Route::get('rooms/create', [AdminRoomController::class, 'create'])->name('admin.rooms.create');
     Route::post('rooms/store', [AdminRoomController::class, 'store'])->name('admin.rooms.store');
