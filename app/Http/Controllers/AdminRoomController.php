@@ -43,8 +43,8 @@ class AdminRoomController extends Controller
         $room->type = $request->input("type");
         $pics = $request->file("pics");
         $picsname =time().'.'.$pics->getClientOriginalExtension();
-        $request->pics->move(public_path('images/'), $picsname);
-        $room->pics = "images/".$picsname;
+        $request->pics->move(public_path('images/pics/'), $picsname);
+        $room->pics = "images/pics/".$picsname;
         $room->people = $request->input("people");
         $room->price = $request->input("price");
         $room->remark = $request->input("remark");
