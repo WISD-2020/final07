@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use app\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -13,10 +14,15 @@ class CartController extends Controller
      */
     public function index()
     {
-
-        $carts =$request->user()->cart()->get();
+        $users =auth()->user();
+        $carts =auth()->user()->cart()->get();
 
         return view('carts.index', compact('carts','users'));
+
+        $userid=auth()->user()->id;
+
+
+
     }
 
     /**
@@ -37,7 +43,22 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($cart = $request->user()->cart()->where('room_id', $request->room_id)->first()) {
+            $cart->update([
+                'amount' => $cart->amount + $request->amount,
+            ]);
+        } else{
+            Cart::create([
+                'user_id'    => $request->user()->id,
+                'room_id' => $request->room_id,
+                'checkin' => $request->checkin,
+                'checkout' => $request->checkout,
+                'amount'     => $request->amount,
+            ]);
+        }
+
+        return [];
+
     }
 
     /**
@@ -82,6 +103,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $request->user()->cart()->where('room_id', $id)->delete();
+        return [];
     }
 }
