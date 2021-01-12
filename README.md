@@ -1,62 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## 系統名稱 
+### 曙晨民宿訂房系統
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## 系統畫面
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 房間一覽
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<a href="https://i.imgur.com/CZgijmr.jpeg"><img src="https://i.imgur.com/CZgijmr.jpeg" title="source: imgur.com" /></a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 房間管理
 
-## Learning Laravel
+<a href="https://i.imgur.com/YLE6LoD.png"><img src="https://i.imgur.com/YLE6LoD.png" title="source: imgur.com" /></a>
+<a href="https://i.imgur.com/7V5XbBL.png"><img src="https://i.imgur.com/7V5XbBL.png" title="source: imgur.com" /></a>
+<a href="https://i.imgur.com/Daeb6dP.png"><img src="https://i.imgur.com/Daeb6dP.png" title="source: imgur.com" /></a>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 訂單管理
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<a href="https://i.imgur.com/5sendGy.png"><img src="https://i.imgur.com/5sendGy.png" title="source: imgur.com" /></a>
+<a href="https://i.imgur.com/yWMvzfj.png"><img src="https://i.imgur.com/Daeb6dP.png" title="source: imgur.com" /></a>
 
-## Laravel Sponsors
+## 系統的主要功能
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
-### Premium Partners
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+//房型
+Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
+Route::get('/rooms/{id}', [RoomController::class,'index'])->name('rooms.show');
 
-## Contributing
+//訂房
+Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
+Route::get('reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
+Route::get('reservations/{id}', [ReservationController::class, 'show'])->name('reservations.show');
+Route::post('reservations', [ReservationController::class, 'store'])->name('reservations.store');
+Route::delete('reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+//管理員
+Route::prefix('admin')->group(function () {
+    //訂單管理
+    Route::get('/', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
+    Route::get('reservations/{id}/edit', [AdminReservationController::class, 'edit'])->name('admin.reservations.edit');
+    Route::post('reservations', [AdminReservationController::class, 'store'])->name('admin.reservations.store');
+    Route::get('reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
+    //房間管理
+    Route::get('rooms', [AdminRoomController::class, 'index'])->name('admin.rooms.index');
+    Route::get('rooms/create', [AdminRoomController::class, 'create'])->name('admin.rooms.create');
+    Route::post('rooms/store', [AdminRoomController::class, 'store'])->name('admin.rooms.store');
+    Route::patch('rooms/{id}', [AdminRoomController::class, 'update'])->name('admin.rooms.update');
+    Route::delete('rooms/{id}', [AdminRoomController::class, 'destroy'])->name('admin.rooms.destroy');
+    Route::get('rooms/{id}/edit', [AdminRoomController::class, 'edit'])->name('admin.rooms.edit');
+});
 
-## Code of Conduct
+- 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ERD
 
-## Security Vulnerabilities
+<a href="https://i.imgur.com/izoyHjJ.png"><img src="https://i.imgur.com/izoyHjJ.png" title="source: imgur.com" /></a>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 關聯式綱要圖
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<a href="https://i.imgur.com/HVTfWhd.png"><img src="https://i.imgur.com/HVTfWhd.png" title="source: imgur.com" /></a>
