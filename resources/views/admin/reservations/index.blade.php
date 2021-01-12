@@ -36,16 +36,16 @@
                         </thead>
                         @foreach($reservations as $reservations)
                             <tr>
-                                <td>{{$reservation->id}}</td>
-                                <td>{{$reservation->user_id}}</td>
-                                <td>{{($reservation->reservation_in)}}</td>
-                                <td>{{($reservation->checkin)}}</td>
-                                <td>{{($reservation->reservation_out)}}</td>
-                                <td>{{($reservation->checkout)}}</td>
-                                <td>{{($reservation->cost)}}</td>
-                                <td>{{($reservation->states)}}</td>
+                                <td>{{$reservations->id}}</td>
+                                <td>{{$reservations->user_id}}</td>
+                                <td>{{($reservations->reservation_in)}}</td>
+                                <td>{{($reservations->checkin)}}</td>
+                                <td>{{($reservations->reservation_out)}}</td>
+                                <td>{{($reservations->checkout)}}</td>
+                                <td>{{($reservations->cost)}}</td>
+                                <td>{{($reservations->states)}}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('admin.reservations.edit', $reservation->id) }}">編輯</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('admin.reservations.edit', $reservations->id) }}">編輯</a>
                                 </td>
                             </tr>
                         @endforeach
