@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\AdminRoomController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -29,13 +30,14 @@ Route::get('/rooms', function () {
     return view('index');
 });
 
-
+//房型
 Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
+Route::get('/rooms/{id}', [RoomController::class,'index'])->name('room.show');
 
 //購物車
-Route::post('/cart/store', 'CartController@store')->name('cart.store');
-Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+Route::post('carts/store', [CartController::class, 'store'])->name('carts.store');
+Route::get('cart', [CartController::class, 'index'])->name('carts.index');
+Route::delete('cart/{id}', [CartController::class, 'destroy'])->name('carts.destroy');
 
 //訂房
 Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');

@@ -1,4 +1,3 @@
-!DOCTYPE HTML>
 @extends('layouts.master')
 
 @section('title', '曙晨民宿')
@@ -21,6 +20,51 @@
 					</header>
 				</div>
 			</section>
+
+    <div class="card-deck">
+        @foreach($rooms as $room)
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>房型</th>
+                        <th>照片</th>
+                        <th>人數</th>
+                        <th>價錢</th>
+                        <th>備註</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            {{ $room->type }}
+                        </td>
+                        <td width=300pt>
+                            <a href="{{ $room->pics }}">
+                            <span class="image fit"> <img STYLE="width: 300pt" src={{$room->pics}}></span>
+                            </div>
+                        </td>
+                        <td>
+                            {{ $room->people }}
+                        </td>
+                        <td>
+                            <div class="card-footer text-center">
+                                ${{ $room->price }}
+                            </div>
+                        </td>
+                        <td>
+                            {{ $room->remark }}
+                        </td>
+                        <td>
+                            <button class="btn btn-primary btn-add-to-cart" data-id="{{ $room->id }}">加入購物車</button>
+                        </td>
+                    </tr>
+            </table>
+            </div>
+
+        @endforeach
+    </div>
+    <input type="hidden" name="amount" value="1">
 
 		<!-- Two -->
 			<section id="two" class="wrapper style2">
