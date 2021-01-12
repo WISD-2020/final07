@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
@@ -15,11 +17,13 @@ class ReservationController extends Controller
      */
     public function index(Request $request)
     {
-        $rooms=Room::orderBy('created_at','DESC')->get();
-        $aa= Room::all();
-        $data=['rooms'=>$rooms, 'a'=>$aa];
+        $reservations = Reservation::where('user_id', $request->user()->id()->get());
+        $details= detail::all();
+        $date=['reservations'=>$reservations, 'detail'=>$details];
 
-       return view('reservations.index', $data);
+       return view('reservations.index', $date);
+
+
     }
 
     /**
@@ -27,9 +31,11 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('reservations.create');
+        Reservation::create($request -> all());
+        return redirect()-> route('rooms.index');
+
     }
 
     /**
@@ -40,21 +46,7 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-
-        $reservations = new Reservation();
-        $reservations->user_id = $request->input('user_id');
-        $reservations->checkin = $request->input('checkin');
-        $reservations->checkout = $request->input('checkout');
-        $reservations->cost = $request->input('cost');
-        $reservations->status = $request->input('status');
-        $reservations->save();
-        $rooms = reservation::orderBy('id', 'ASC')->paginate(6);
-        $data = [
-            'rooms' => $rooms
-        ];
-        return view('reservations.index', $data);
-
-
+        //
 
     }
 
@@ -64,9 +56,12 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Reservations $reservations)
     {
-        //
+        $details= detail::all();
+        $rooms =Room::all();
+        $date=['reservations'=> $reservations,'details'=>$details,'rooms'=>$rooms];
+        return view('reservation.show', $date);
     }
 
     /**

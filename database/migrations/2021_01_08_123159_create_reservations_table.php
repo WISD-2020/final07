@@ -20,8 +20,8 @@ class CreateReservationsTable extends Migration
             $table->dateTime('checkin')->nullable();
             $table->dateTime('reservation_out')->nullable();
             $table->dateTime('checkout')->nullable();
-            $table->integer('cost');
-            $table->string('states');
+            $table->integer('cost')->nullable();
+            $table->string('states')->nullable();
             $table->timestamps();
 
         });

@@ -32,12 +32,12 @@ Route::get('/rooms', function () {
 
 //房型
 Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
-Route::get('/rooms/{id}', [RoomController::class,'index'])->name('room.show');
+Route::get('/rooms/{id}', [RoomController::class,'index'])->name('rooms.show');
 
 //購物車
 Route::post('carts/store', [CartController::class, 'store'])->name('carts.store');
-Route::get('cart', [CartController::class, 'index'])->name('carts.index');
-Route::delete('cart/{id}', [CartController::class, 'destroy'])->name('carts.destroy');
+Route::get('carts', [CartController::class, 'index'])->name('carts.index');
+Route::delete('carts/{id}', [CartController::class, 'destroy'])->name('carts.destroy');
 
 //訂房
 Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
