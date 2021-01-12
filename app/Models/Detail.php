@@ -18,7 +18,8 @@ class Detail extends Model
         'total',
         'name',
         'quantity',
-        'status'
+        'status',
+        'price'
     ];
 
     public function reservation(){

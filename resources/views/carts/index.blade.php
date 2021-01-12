@@ -17,9 +17,9 @@
         $total = 0;
         $error='';
     @endphp
-    <form action="{{ route('reservation.store') }}" method="post" id="reservation-form">
+    <form action="{{ route('carts.store') }}" method="post" id="reservation-form">
         @csrf
-        @if(count(auth()->user()->cart))
+        @if(count(user()->cart()))
             <h2>請先選擇入住及退房日期</h2>
             <table class="table table-striped">
                 <tr>

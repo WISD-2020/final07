@@ -54,14 +54,15 @@
                             {{ $room->remark }}
                         </td>
                         <td>
+
                             <form action="reservations/create" method="GET">
                                 {{ csrf_field() }}
-                                <input type = "hidden" id = "delete_id" name = "id" value = "{{$room->id}}">
+                                <input type = "hidden" id = "delete_id" name = "id" value = "">
+
                                 <button type="submit" class="btn btn-danger">預約</button>
                             </form>
                         </td>
 
-                        </td>
                     </tr>
             </table>
             </div>
@@ -70,7 +71,7 @@
 
         @endforeach
     </div>
-    <input type="hidden" name="amount" value="1">
+
 
 
 

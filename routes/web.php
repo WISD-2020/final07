@@ -26,10 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/rooms', function () {
-    return view('index');
-});
-
 //房型
 Route::get('/rooms',[RoomController::class,'index'])->name('rooms.index');
 Route::get('/rooms/{id}', [RoomController::class,'index'])->name('rooms.show');

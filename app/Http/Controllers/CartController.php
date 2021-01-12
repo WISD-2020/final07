@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use app\Cart;
+
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -12,14 +13,14 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users =auth()->user();
-        $carts =auth()->user()->cart()->get();
+        $users =$request->user();
+        $carts =$request->user()->cart()->get();
 
         return view('carts.index', compact('carts','users'));
 
-        $userid=auth()->user()->id;
+
 
 
 
@@ -101,7 +102,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
 
         $request->user()->cart()->where('room_id', $id)->delete();
