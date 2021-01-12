@@ -156,7 +156,7 @@
 
 
 
-        
+
 
 		<!-- Scripts -->
         @include('layouts.partials.scripts');
